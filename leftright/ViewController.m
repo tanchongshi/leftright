@@ -26,4 +26,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+//@synthesize label=_label;
+
+- (void)dealloc {
+    [_label release];
+    [super dealloc];
+}
+- (IBAction)buttonPressed:(UIButton *)sender {
+    NSString *title = [sender titleForState:UIControlStateNormal];
+    _label.text = [NSString stringWithFormat:@"%@ button pressed.", title];
+}
 @end
